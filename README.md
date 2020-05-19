@@ -1,8 +1,9 @@
-# Simple Traveller website
+# Forkify is a cookbook where you can search for over 1,000,000 recipes
 
-**See webpage at** [GitHub Pages](https://maciejsiara.github.io/Traveller/)
+Forkify is using the [Spoonacular API](https://spoonacular.com/food-api)
 
 ## Used technologies
-- HTML
-- SASS
-- JavaScript
+
+- Webpack
+- SASS (with BEM)
+- JavaScript (ES6+, promises)

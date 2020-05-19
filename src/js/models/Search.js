@@ -6,7 +6,7 @@ export default class Search {
   }
 
   async getResults() {
-    const key = "1b47d6ca8c7449a189771b2e969d381d";
+    const key = "a2adcbea45ed4306be20c118dd20873d";
     try {
       const res = await axios(
         `https://api.spoonacular.com/recipes/search?apiKey=${key}&query=${this.query}&number=30`

@@ -2,6 +2,7 @@ import "../style/style.scss";
 import Search from "./models/Search";
 import Recipe from "./models/Recipe";
 import * as searchView from "./views/searchView";
+import * as recipeView from "./views/recipeView";
 import { elements, renderLoader, clearLoader } from "./views/base";
 
 /////////////////////////////
@@ -33,7 +34,7 @@ const controlSearch = async () => {
     clearLoader();
     state.search.result.length > 0
       ? searchView.renderResults(state.search.result)
-      : console.log("nic ni ma tutaj");
+      : console.log("nic nie ma tutaj");
   }
 };
 
@@ -52,5 +53,30 @@ elements.searchResPages.addEventListener("click", (e) => {
 });
 
 // RECIPE
-const r = new Recipe(209875);
-r.getRecipe();
+
+const controlRecipe = async () => {
+  // get id form url
+  const id = window.location.hash.replace("#", "");
+
+  if (id) {
+    //prepare ui for changes
+    recipeView.clearRecipe();
+    renderLoader(elements.recipe);
+    //create new recipe object
+    state.recipe = new Recipe(id);
+
+    try {
+      //get recipe data
+      await state.recipe.getRecipe();
+      // render recipe
+      clearLoader();
+      recipeView.renderRecipe(state.recipe);
+    } catch (error) {
+      alert("Error procesing recipe");
+    }
+  }
+};
+
+["hashchange", "load"].forEach((event) =>
+  window.addEventListener(event, controlRecipe)
+);

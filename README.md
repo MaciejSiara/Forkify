@@ -8,4 +8,8 @@ Forkify is using the [Spoonacular API](https://spoonacular.com/food-api)
 
 - Webpack
 - SASS (with BEM)
-- JavaScript (ES6+, promises)
+- JavaScript Modules(ES6+)
+- AXIOS
+- Local Storage
+
+

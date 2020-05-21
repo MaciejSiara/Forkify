@@ -84,7 +84,7 @@ const controlRecipe = async () => {
       clearLoader();
       recipeView.renderRecipe(state.recipe, state.likes.isLiked(id));
     } catch (error) {
-      console.log(error)
+      console.error(error)
       alert("Error procesing recipe");
     }
   }
@@ -143,7 +143,6 @@ const controlLike = () => {
 
     // add like to UI
     likesView.renderLike(newLike)
-    console.log(state.likes)
 
     //user has liked cur recipe
   } else {
@@ -173,8 +172,6 @@ window.addEventListener('load', () => {
   //render the existing likes
   state.likes.likes.forEach(like => likesView.renderLike(like));
 })
-
-console.log(true && false)
 
 // handling recipe button clicks
 elements.recipe.addEventListener('click', e => {

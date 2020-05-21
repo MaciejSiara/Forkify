@@ -81,6 +81,8 @@
     &-data {
       margin-right: 0.4rem;
       font-weight: 600;
+      display: flex;
+      flex-direction: row;
     }
 
     &-buttons {

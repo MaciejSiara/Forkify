@@ -18,9 +18,23 @@ export default class Recipe {
       this.ingredients = res.data.extendedIngredients;
       this.cookingMinutes = res.data.cookingMinutes;
       this.servings = res.data.servings;
+      console.log(res);
     } catch (error) {
       console.error(error);
       alert("Something went wrong");
     }
+  }
+
+  updateServings(type) {
+    //servings
+    const newServings = type === 'dec' ? this.servings - 1 : this.servings + 1;
+
+    //ingredients
+    this.ingredients.forEach(el => {
+      el.measures.metric.amount *= (newServings / this.servings);
+
+    });
+
+    this.servings = newServings;
   }
 }
